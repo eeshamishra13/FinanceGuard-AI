@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { 
+  --background: #152019; 
+  --foreground: #edf4e9; 
+  --panel: #1d2b20; 
+  --surface: #263827; 
+  --line: #48624b; 
+  --muted-text: #a6b7a0; 
+  --accent: #9fcf96; 
+  --amber: #d9a441; 
+  --critical: #d46a62; 
+  --slate: #718571; 
+  --cedar: #8f6f4f; 
+  --radius: 0.35rem; 
+}
+
+* { box-sizing: border-box; }
+html { background: var(--background); scroll-behavior: smooth; }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: Arial, sans-serif; line-height: 1.5; }
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.landing, .dashboard { min-height: 100vh; background-color: var(--background); position: relative; overflow: hidden; }
+.site-nav { height: 88px; max-width: 1280px; padding: 0 5vw; margin: auto; display: flex; align-items: center; gap: 3rem; position: relative; z-index: 2; border-bottom: 1px solid var(--line); }
+.site-nav nav a { padding: .7rem .85rem; border: 1px solid transparent; transition: color .2s, border-color .2s, box-shadow .2s; }
+.site-nav nav a.active { color: var(--foreground); border-color: var(--line); box-shadow: 0 0 18px rgba(159,207,150,.12); }
+.wordmark { letter-spacing: .18em; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.wordmark span { color: var(--accent); }
+.site-nav nav { display: flex; gap: 2rem; margin-left: auto; }
+.site-nav nav a, .demo-label { color: var(--muted-text); font-size: 10px; letter-spacing: .16em; }
+.site-nav nav a:hover { color: var(--foreground); }
+.demo-label { border-left: 1px solid var(--line); padding-left: 2rem; }
+.demo-label i, .active-status i { width: 6px; height: 6px; display: inline-block; background: var(--accent); border-radius: 50%; margin-right: 7px; box-shadow: 0 0 12px var(--accent); }
+
+.instrument-card { border: 1px solid var(--line); background: rgba(17,21,26,.78); padding: 2rem; backdrop-filter: blur(12px); }
+.metric-label { font-size: 10px; letter-spacing: .2em; color: var(--muted-text); text-transform: uppercase; }
+.dashboard-head { padding-top: 4rem; padding-bottom: 3rem; display: flex; justify-content: space-between; align-items: end; }
+.dashboard-head h1 { font-size: clamp(2rem, 4vw, 4rem); font-weight: 400; letter-spacing: -.06em; margin: .7rem 0 0; }
+.active-status { color: var(--accent); font: 10px monospace; letter-spacing: .14em; padding-bottom: .7rem; }
+.dashboard-grid { display: grid; gap: 1rem; padding-top: 1rem; }
+.top-grid { grid-template-columns: 1.1fr .9fr; }

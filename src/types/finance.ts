@@ -1,30 +1,33 @@
-﻿export interface FinancialMetrics {
-  resilience: number;
-  runwayMonths: number;
-  monthlySavings: number;
-  netWorth: number;
-  monthlyIncome: number;
-  monthlyExpenses: number;
-  liquidEmergencyFund: number;
-  investments: number;
-  fixedExpenses: number;
-  discretionaryExpenses: number;
+export interface CurrentFinancialState {
+  income: number; // e.g. 60000
+  expenses: number; // e.g. 42000
+  savings: number; // e.g. 18000
+  netWorth: number; // e.g. 380000
+  savingsRate: number; // e.g. 30 (percent)
+  runwayMonths: number; // e.g. 7.2
+  resilienceScore: number; // e.g. 82 (out of 100)
 }
 
-export type ScenarioType = 
-  | 'job_loss' 
-  | 'rent_increase' 
-  | 'emergency_expense' 
-  | 'income_boost' 
-  | 'cut_spending';
+export interface SimulationAfterState {
+  resilienceScore: number;
+  runwayMonths: number;
+  projectedBalance: number;
+  monthlyCashFlow: number;
+}
 
-export interface TimelineMonth {
+export type ScenarioId = 
+  | 'jobloss' 
+  | 'income_minus_30' 
+  | 'rent_plus_20' 
+  | 'emergency_expense' 
+  | 'save_more';
+
+export interface TimelinePoint {
   monthIndex: number;
   monthName: string;
+  balance: number;
   resilience: number;
-  runwayMonths: number;
-  netWorth: number;
-  monthlySavings: number;
+  runway: number;
   status: 'safe' | 'warning' | 'critical';
   notes: string;
 }
@@ -36,41 +39,34 @@ export interface RecoveryLever {
   monthlyImpact: number;
   lumpSumImpact: number;
   resilienceBoost: number;
-  actionType: 'expense_cut' | 'emergency_fund' | 'side_income' | 'debt_optimization';
   applied: boolean;
 }
 
-export interface ProjectionPoint {
-  month: string;
-  baselineNetWorth: number;
-  stressedNetWorth: number;
-  baselineRunway: number;
-  stressedRunway: number;
-  baselineResilience: number;
-  stressedResilience: number;
-}
-
-export interface TopFactor {
-  factor: string;
-  impact: string;
-  isNegative: boolean;
-  severity: 'low' | 'medium' | 'high';
-}
-
-export interface StressTestResult {
-  scenarioType: ScenarioType;
-  scenarioTitle: string;
-  scenarioDescription: string;
-  params: Record<string, any>;
-  before: FinancialMetrics;
-  after: FinancialMetrics;
-  verdict: string;
-  verdictSeverity: 'safe' | 'warning' | 'critical';
-  topFactors: TopFactor[];
-  timeline: TimelineMonth[];
-  projections: ProjectionPoint[];
+export interface ScenarioDefinition {
+  id: ScenarioId;
+  title: string;
+  shortDesc: string;
+  tag: string;
+  iconName: string;
+  after: SimulationAfterState;
+  aiExplanation: string;
+  concreteRecommendation: string;
+  topFactors: {
+    factor: string;
+    impact: string;
+    isNegative: boolean;
+  }[];
+  timeline: TimelinePoint[];
   recoveryLevers: RecoveryLever[];
-  appliedLeverIds: string[];
+}
+
+export interface FullSimulationData {
+  current: CurrentFinancialState;
+  simulation: {
+    scenario: ScenarioId;
+    after: SimulationAfterState;
+    aiExplanation: string;
+  };
 }
 
 export interface CopilotMessage {
