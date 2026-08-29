@@ -1,20 +1,31 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "noEmit": true,
-    "lib": ["ES2022", "DOM"],
+    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/financial-engine/*": ["./financial-engine/*"],
-      "@/*": ["./*"]
+      "@/*": ["./src/*"],
+      "lib/*": ["./src/lib/*"],
+      "@/financial-engine/*": ["./financial-engine/*"]
     }
   },
-  "include": ["financial-engine/**/*"]
+  "include": [
+    "src",
+    "financial-engine"
+  ]
 }
