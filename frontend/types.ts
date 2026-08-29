@@ -51,6 +51,7 @@ export interface ButtonProps {
   href?: string;
   onClick?: () => void;
   className?: string;
+  type?: "button" | "submit" | "reset";
 }
 
 export interface SectionHeadingProps {
@@ -62,6 +63,7 @@ export interface SectionHeadingProps {
 export interface GlassCardProps {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
   as?: "section" | "div" | "article";
 }
 
@@ -75,12 +77,14 @@ export interface AnimatedNumberProps {
   prefix?: string;
   suffix?: string;
   decimals?: number;
+  format?: (value: number) => string;
   className?: string;
 }
 
 export interface ResilienceRingProps {
   score: number;
   band: DerivedMetrics["resilienceBand"];
+  label?: string;
 }
 
 export interface RunwayGaugeProps {

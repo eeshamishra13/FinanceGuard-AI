@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { AnimatedNumberProps, ButtonProps, GlassCardProps, MetricLabelProps, ResilienceRingProps, RunwayGaugeProps, SectionHeadingProps } from "@/types";
 
-export function GlassCard({ children, className = "", as: Tag = "div" }: GlassCardProps) {
-  return <Tag className={`instrument-card ${className}`}>{children}</Tag>;
+export function GlassCard({ children, className = "", style, as: Tag = "div" }: GlassCardProps) {
+  return <Tag className={`instrument-card ${className}`} style={style}>{children}</Tag>;
 }
 
 export function MetricLabel({ children, className = "" }: MetricLabelProps) {
