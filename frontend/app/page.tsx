@@ -20,13 +20,13 @@ export default function Page() {
           <p>Turn your current financial state into a living model so you can understand where you stand, test what could happen, and make better decisions before reality forces them.</p>
         </div>
         <div className="hero-visual"><OrbitalTwin /><div className="orb-caption"><span>MODEL / 01</span><span>LIVE STATE</span></div></div>
-        <div className="hero-actions"><PrimaryButton href="/dashboard">EXPLORE YOUR TWIN</PrimaryButton><Link className="text-link" href="#story">SEE HOW IT WORKS <span>↓</span></Link></div>
+        <div className="hero-actions"><PrimaryButton href="/login">EXPLORE YOUR TWIN</PrimaryButton><Link className="text-link" href="#story">SEE HOW IT WORKS <span>↓</span></Link></div>
       </section>
       <section className="story" id="story" aria-labelledby="story-title">
         <div className="story-intro"><MetricLabel>THE MODEL</MetricLabel><h2 id="story-title">A clearer way to move through uncertainty.</h2></div>
         <div className="journey">{journey.map((item, i) => <article className={`journey-item journey-${i + 1}`} key={item.n}><span className="journey-number">{item.n}</span><div><MetricLabel>{item.eyebrow}</MetricLabel><h3>{item.title}</h3><p>{item.copy}</p></div><span className="journey-mark" aria-hidden="true">↗</span></article>)}</div>
       </section>
-      <section className="closing" aria-labelledby="closing-title"><MetricLabel>THE NEXT MOVE</MetricLabel><h2 id="closing-title">Your future isn&apos;t fixed.<br /><span>Test it.</span></h2><PrimaryButton href="/dashboard">ENTER YOUR FINANCIAL TWIN</PrimaryButton></section>
+      <section className="closing" aria-labelledby="closing-title"><MetricLabel>THE NEXT MOVE</MetricLabel><h2 id="closing-title">Your future isn&apos;t fixed.<br /><span>Test it.</span></h2><PrimaryButton href="/login">ENTER YOUR FINANCIAL TWIN</PrimaryButton></section>
       <footer className="site-footer"><span>© 2026 FINANCEGUARD</span><span>PRIVATE BY DESIGN / DEMO MODE</span></footer>
     </main>
   );
