@@ -1,0 +1,29 @@
+﻿{
+  "fuel_diesel": {
+    "key": "fuel_diesel",
+    "name": "Commercial Diesel Price",
+    "currentValue": 92.50,
+    "previousValue": 89.62,
+    "unit": "₹/L",
+    "sourceName": "PPAC (Petroleum Planning & Analysis Cell, India - verified 2026-08-15)",
+    "lastVerifiedDate": "2026-08-15"
+  },
+  "rbi_repo": {
+    "key": "rbi_repo",
+    "name": "RBI Policy Repo Rate",
+    "currentValue": 6.50,
+    "previousValue": 6.50,
+    "unit": "%",
+    "sourceName": "Reserve Bank of India Monetary Policy (verified 2026-08-10)",
+    "lastVerifiedDate": "2026-08-10"
+  },
+  "usd_inr_fallback": {
+    "key": "usd_inr",
+    "name": "USD / INR Exchange Rate",
+    "currentValue": 89.10,
+    "previousValue": 86.45,
+    "unit": "₹",
+    "sourceName": "Cached Open Exchange Feed (verified 2026-08-25)",
+    "lastVerifiedDate": "2026-08-25"
+  }
+}
